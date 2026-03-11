@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly - Software Development & IT Solutions</title>
+  <meta name="description" content="Professional software development, web apps, and IT consulting services">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><img src="images/blue_stackly_logo.png" alt="Stackly Logo"></a>
+      <nav class="navbar__menu">
+        <div class="navbar__dropdown">
+          <a href="index.html" class="navbar__link active">Home <span class="navbar__arrow">▼</span></a>
+          <ul class="navbar__dropdown-menu">
+            <li><a href="index.html" class="navbar__dropdown-link">Home1</a></li>
+            <li><a href="index-2.html" class="navbar__dropdown-link">Home2</a></li>
+          </ul>
+        </div>
+        <a href="index.html#about" class="navbar__link">About</a>
+        <a href="index.html#services" class="navbar__link">Services</a>
+        <a href="index.html#portfolio" class="navbar__link">Portfolio</a>
+        <a href="index.html#blog" class="navbar__link">Blog</a>
+        <a href="index.html#pricing" class="navbar__link">Pricing</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+        <a href="dashboard.html" class="navbar__link">Dashboard</a>
+        <div class="navbar__menu-actions">
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+      </nav>
+      <div class="navbar__actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <a href="login.html" class="btn btn-outline navbar__login-desktop">Login</a>
+        <a href="register.html" class="btn btn-primary navbar__signup-desktop">Get Started</a>
+        <button class="navbar__mobile-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero--banner">
+    <div class="hero__media">
+      <video class="hero__video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920">
+        <source src="https://cdn.coverr.co/videos/coverr-abstract-technology-network-4612772/4612772-1080p.mp4" type="video/mp4">
+      </video>
+      <img class="hero__image-fallback" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920" alt="">
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content-wrap">
+      <div class="container">
+        <div class="hero__content hero__content--center">
+          <span class="hero__badge">Award-Winning Software Solutions</span>
+          <h1>Transform Your Business with <span class="text-gradient">Digital Innovation</span></h1>
+          <p>We build scalable software solutions, modern web applications, and provide expert IT consulting to help your business thrive in the digital age.</p>
+          <div class="hero__actions">
+            <a href="contact.html" class="btn btn-primary">Start a Project</a>
+            <a href="services.html" class="btn btn-outline btn--light">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#services" class="hero__scroll" aria-label="Scroll down">↓</a>
+  </section>
+
+
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Our Services</span>
+        <h2>What We Offer</h2>
+        <p>Comprehensive software development and IT services tailored to your business needs.</p>
+      </div>
+      <div class="services__grid">
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Web Development</h3>
+          <p>Custom websites and web applications built with modern technologies for performance and scalability.</p>
+          <a href="service-details.html">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          </div>
+          <h3>Mobile Apps</h3>
+          <p>Native and cross-platform mobile applications for iOS and Android that engage your users.</p>
+          <a href="service-details.html">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3>Cloud Solutions</h3>
+          <p>Cloud migration, DevOps, and infrastructure management to scale your operations efficiently.</p>
+          <a href="service-details.html">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="15" r="2"/></svg>
+          </div>
+          <h3>AI & Automation</h3>
+          <p>Intelligent automation and AI-powered solutions to streamline your workflows.</p>
+          <a href="service-details.html">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>API & Backend</h3>
+          <p>RESTful APIs, GraphQL, and microservices built with Node.js, Python, and Java.</p>
+          <a href="service-details.html">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>IT Consulting</h3>
+          <p>Technology strategy, architecture review, and digital transformation advisory.</p>
+          <a href="service-details.html">Learn more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__image">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" alt="Our team collaborating">
+        </div>
+        <div>
+          <span class="section__subtitle">About Us</span>
+          <h2>We Deliver Excellence in Software Development</h2>
+          <p>With over a decade of experience, we help startups and enterprises build robust software solutions. Our team combines technical expertise with business acumen to deliver projects that exceed expectations.</p>
+          <div class="about__features">
+            <div class="about__feature">
+              <div class="about__feature-icon">✓</div>
+              <div>
+                <h4>Expert Team</h4>
+                <p>Senior developers and designers with industry experience</p>
+              </div>
+            </div>
+            <div class="about__feature">
+              <div class="about__feature-icon">✓</div>
+              <div>
+                <h4>Agile Process</h4>
+                <p>Iterative development for faster delivery</p>
+              </div>
+            </div>
+            <div class="about__feature">
+              <div class="about__feature-icon">✓</div>
+              <div>
+                <h4>24/7 Support</h4>
+                <p>Round-the-clock technical support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tech-section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Technologies</span>
+        <h2>Our Tech Stack</h2>
+        <p>We use cutting-edge technologies to build fast, secure, and scalable applications.</p>
+      </div>
+      <div class="tech__grid">
+        <div class="tech__item">
+          <div class="tech__icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+          </div>
+          <span>React</span>
+        </div>
+        <div class="tech__item">
+          <div class="tech__icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+          </div>
+          <span>Node.js</span>
+        </div>
+        <div class="tech__item">
+          <div class="tech__icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+          </div>
+          <span>MongoDB</span>
+        </div>
+        <div class="tech__item">
+          <div class="tech__icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+          </div>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech__item">
+          <div class="tech__icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+          </div>
+          <span>Python</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Portfolio</span>
+        <h2>Our Latest Projects</h2>
+        <p>Explore our recent work and see how we've helped businesses grow.</p>
+      </div>
+      <div class="portfolio__grid">
+        <article class="portfolio-card">
+          <div class="portfolio-card__image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="FinTech Dashboard">
+          </div>
+          <div class="portfolio-card__overlay">
+            <h4>FinTech Dashboard</h4>
+            <span>Web Application</span>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <div class="portfolio-card__image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600" alt="E-Commerce Platform">
+          </div>
+          <div class="portfolio-card__overlay">
+            <h4>E-Commerce Platform</h4>
+            <span>Full Stack</span>
+          </div>
+        </article>
+        <article class="portfolio-card">
+          <div class="portfolio-card__image">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" alt="Healthcare App">
+          </div>
+          <div class="portfolio-card__overlay">
+            <h4>Healthcare App</h4>
+            <span>Mobile App</span>
+          </div>
+        </article>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="portfolio.html" class="btn btn-primary">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat-item">
+          <h3 data-count="150" data-suffix="+">0</h3>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="98" data-suffix="%">0</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="50" data-suffix="+">0</h3>
+          <p>Expert Team Members</p>
+        </div>
+        <div class="stat-item">
+          <h3 data-count="12" data-suffix="+">0</h3>
+          <p>Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Testimonials</span>
+        <h2>What Clients Say</h2>
+        <p>Don't just take our word for it—hear from our satisfied clients.</p>
+      </div>
+      <div class="testimonials__wrapper">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">"Stackly delivered our project on time and exceeded our expectations. Their technical expertise and professionalism are unmatched."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120" alt="John Smith">
+            </div>
+            <div class="testimonial-card__info">
+              <h4>John Smith</h4>
+              <span>CEO, TechStart Inc.</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card hidden">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">"The team understood our vision from day one. They built a scalable solution that has helped us grow 3x in the past year."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120" alt="Maria Johnson">
+            </div>
+            <div class="testimonial-card__info">
+              <h4>Maria Johnson</h4>
+              <span>Founder, ScaleUp</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card hidden">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__quote">"Best software partner we've worked with. Clean code, great communication, and a focus on quality."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120" alt="David Brown">
+            </div>
+            <div class="testimonial-card__info">
+              <h4>David Brown</h4>
+              <span>CTO, Innovate Labs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Pricing</span>
+        <h2>Choose Your Plan</h2>
+        <p>Flexible pricing plans designed to fit businesses of all sizes.</p>
+      </div>
+      <div class="pricing__grid">
+        <article class="pricing-card">
+          <h3>Starter</h3>
+          <p class="pricing-card__desc">Perfect for small teams getting started</p>
+          <div class="pricing-card__price">$49 <span>/month</span></div>
+          <ul class="pricing-card__features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>5 Projects</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>10GB Storage</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Email Support</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Basic Analytics</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline pricing-card__btn">Get Started</a>
+        </article>
+        <article class="pricing-card featured">
+          <span class="pricing-card__badge">Most Popular</span>
+          <h3>Professional</h3>
+          <p class="pricing-card__desc">For growing businesses</p>
+          <div class="pricing-card__price">$99 <span>/month</span></div>
+          <ul class="pricing-card__features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Unlimited Projects</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>50GB Storage</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Priority Support</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Advanced Analytics</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>API Access</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary pricing-card__btn">Get Started</a>
+        </article>
+        <article class="pricing-card">
+          <h3>Enterprise</h3>
+          <p class="pricing-card__desc">For large organizations</p>
+          <div class="pricing-card__price">$199 <span>/month</span></div>
+          <ul class="pricing-card__features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Everything in Pro</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Unlimited Storage</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>24/7 Support</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dedicated Manager</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Custom Integrations</li>
+          </ul>
+          <a href="contact.html" class="btn btn-outline pricing-card__btn">Contact Sales</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--light);">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq-item active">
+          <button class="faq-item__question">How long does a typical project take?<span class="faq-item__icon">▼</span></button>
+          <div class="faq-item__answer">
+            <p>Project timelines vary based on scope. A simple website takes 2-4 weeks, while complex applications can take 3-6 months. We provide detailed timelines during the discovery phase.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question">Do you offer ongoing support?<span class="faq-item__icon">▼</span></button>
+          <div class="faq-item__answer">
+            <p>Yes, we offer maintenance and support packages. From bug fixes to feature updates, we keep your software running smoothly.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-item__question">What is your development process?<span class="faq-item__icon">▼</span></button>
+          <div class="faq-item__answer">
+            <p>We follow an Agile methodology with sprints, regular demos, and client feedback. You'll have full visibility into progress at every stage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Blog</span>
+        <h2>Latest Insights</h2>
+        <p>Stay updated with industry trends and our expert opinions.</p>
+      </div>
+      <div class="blog__grid">
+        <article class="blog-card">
+          <div class="blog-card__image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600" alt="Web Development">
+          </div>
+          <div class="blog-card__content">
+            <span class="blog-card__meta">Mar 5, 2025 • Technology</span>
+            <h3><a href="blog-details.html">The Future of Web Development in 2025</a></h3>
+            <p>Explore emerging trends and technologies that will shape the web development landscape.</p>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card__image">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600" alt="API Security">
+          </div>
+          <div class="blog-card__content">
+            <span class="blog-card__meta">Mar 1, 2025 • Security</span>
+            <h3><a href="blog-details.html">Best Practices for API Security</a></h3>
+            <p>Learn how to secure your APIs and protect user data from common vulnerabilities.</p>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card__image">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600" alt="React Performance">
+          </div>
+          <div class="blog-card__content">
+            <span class="blog-card__meta">Feb 25, 2025 • Performance</span>
+            <h3><a href="blog-details.html">Optimizing React App Performance</a></h3>
+            <p>Tips and tricks to make your React applications faster and more efficient.</p>
+          </div>
+        </article>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="blog.html" class="btn btn-outline">View All Posts</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Let's discuss how we can help bring your vision to life. Get in touch today for a free consultation.</p>
+      <a href="contact.html" class="btn btn-primary">Contact Us</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo"><img src="images/blue_stackly_logo.png" alt="Stackly Logo"></a>
+          <p>Professional software development and IT solutions for modern businesses.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4>Contact</h4>
+          <ul>
+            <li>hello@stackly.com</li>
+            <li>+1 (555) 123-4567</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2025 Stackly. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
