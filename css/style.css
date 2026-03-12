@@ -241,6 +241,12 @@ h4 { font-size: 1.25rem; }
   font-size: 0.6em;
   opacity: 0.8;
   margin-left: 4px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.navbar__dropdown.open .navbar__arrow {
+  transform: rotate(180deg);
 }
 
 .navbar__dropdown-menu {
@@ -2207,6 +2213,39 @@ h4 { font-size: 1.25rem; }
 
 [data-theme="dark"] .auth-card label {
   color: var(--text);
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--light-alt);
+}
+
+[data-theme="dark"] .auth-tabs {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.auth-tabs__button {
+  flex: 1;
+  padding: 1rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-muted);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: -2px;
+}
+
+.auth-tabs__button:hover {
+  color: var(--text);
+}
+
+.auth-tabs__button--active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
 }
 
 .auth-form__options {

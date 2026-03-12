@@ -232,6 +232,28 @@ function initLoginForm() {
   const form = document.getElementById('loginForm');
   if (!form) return;
 
+  // Handle auth tabs
+  const tabs = document.querySelectorAll('.auth-tabs__button');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabType = tab.dataset.tab;
+      
+      // Update active tab
+      tabs.forEach(t => t.classList.remove('auth-tabs__button--active'));
+      tab.classList.add('auth-tabs__button--active');
+      
+      // Update form text based on tab
+      const cardHeader = document.querySelector('.auth-card__header p');
+      if (cardHeader) {
+        if (tabType === 'admin') {
+          cardHeader.textContent = 'Sign in to access your Stackly admin panel';
+        } else {
+          cardHeader.textContent = 'Sign in to access your Stackly account';
+        }
+      }
+    });
+  });
+
   const msgEl = document.getElementById('authMessage');
   form.addEventListener('submit', function(e) {
     e.preventDefault();
