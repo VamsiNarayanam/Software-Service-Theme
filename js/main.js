@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initContactForm();
   initLoginForm();
   initRegisterForm();
+  initScrollReveal();
 });
 
 function initNavbar() {
@@ -306,4 +307,34 @@ function initRegisterForm() {
     }
     window.location.href = '404.html';
   });
+}
+
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll(
+    '.service-card, .blog-card, .portfolio-card, .pricing-card, .team__card, .process__step, .tech__item, .about__feature, .journey__item, .clients__item'
+  );
+
+  if (!revealElements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '0';
+        entry.target.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          entry.target.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, 50);
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealElements.forEach(el => observer.observe(el));
 }
