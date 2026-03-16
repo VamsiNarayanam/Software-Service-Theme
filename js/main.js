@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initContactForm();
   initLoginForm();
   initRegisterForm();
+  initServiceDetails();
   initScrollReveal();
 });
 
@@ -190,7 +191,7 @@ function initContactForm() {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     let isValid = true;
-    form.querySelectorAll('.form-group').forEach(group => {
+    form.querySelectorAll('.form-group:not(#contactMessage)').forEach(group => {
       const input = group.querySelector('input, textarea');
       const errorMsg = group.querySelector('.error-message');
       if (!input) return;
@@ -211,10 +212,23 @@ function initContactForm() {
     });
 
     if (isValid) {
+      showContactSuccess();
       form.reset();
-      window.location.href = '404.html';
     }
   });
+}
+
+function showContactSuccess() {
+  const messageEl = document.getElementById('contactMessage');
+  if (!messageEl) return;
+  
+  messageEl.className = 'contact-form-message contact-form-message--success';
+  messageEl.textContent = '✓ Message sent successfully! We\'ll get back to you within 24 hours.';
+  messageEl.style.display = 'block';
+  
+  setTimeout(() => {
+    messageEl.style.display = 'none';
+  }, 5000);
 }
 
 function showError(group, message, input) {
@@ -238,11 +252,9 @@ function initLoginForm() {
     tab.addEventListener('click', () => {
       const tabType = tab.dataset.tab;
       
-
       tabs.forEach(t => t.classList.remove('auth-tabs__button--active'));
       tab.classList.add('auth-tabs__button--active');
       
-     
       const cardHeader = document.querySelector('.auth-card__header p');
       if (cardHeader) {
         if (tabType === 'admin') {
@@ -254,25 +266,75 @@ function initLoginForm() {
     });
   });
 
-  const msgEl = document.getElementById('authMessage');
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const email = form.querySelector('input[type="email"]');
-    const password = form.querySelector('input[type="password"]');
-    const emailVal = email ? email.value.trim() : '';
-    const passVal = password ? password.value.trim() : '';
-
-    if (msgEl) {
-      msgEl.hidden = false;
-      msgEl.classList.remove('auth-message--success');
-      msgEl.classList.add('auth-message--error');
+    
+    const msgEl = document.getElementById('authMessage');
+    const emailInput = form.querySelector('input[type="email"]');
+    const passwordInput = form.querySelector('input[type="password"]');
+    
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    const passVal = passwordInput ? passwordInput.value.trim() : '';
+    
+    // Clear previous error states
+    form.querySelectorAll('input').forEach(input => input.classList.remove('error'));
+    
+    let hasError = false;
+    
+    // Validate email
+    if (!emailVal) {
+      if (msgEl) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Email is required';
+      }
+      emailInput.classList.add('error');
+      hasError = true;
+    } else if (!isValidEmail(emailVal)) {
+      if (msgEl) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Please enter a valid email address';
+      }
+      emailInput.classList.add('error');
+      hasError = true;
     }
-
-    if (!emailVal || !passVal) {
-      if (msgEl) msgEl.textContent = 'Details not filled';
-      return;
+    
+    // Validate password
+    if (!passVal) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Password is required';
+      }
+      passwordInput.classList.add('error');
+      hasError = true;
+    } else if (passVal.length < 6) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Password must be at least 6 characters';
+      }
+      passwordInput.classList.add('error');
+      hasError = true;
     }
-    window.location.href = '404.html';
+    
+    // If validation passes, show success and redirect
+    if (!hasError) {
+      if (msgEl) {
+        msgEl.hidden = false;
+        msgEl.classList.remove('auth-message--error');
+        msgEl.classList.add('auth-message--success');
+        msgEl.textContent = '✓ Login successful! Redirecting...';
+      }
+      setTimeout(() => {
+        window.location.href = '404.html';
+      }, 1500);
+    }
   });
 }
 
@@ -280,33 +342,244 @@ function initRegisterForm() {
   const form = document.getElementById('registerForm');
   if (!form) return;
 
-  const msgEl = document.getElementById('authMessage');
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const name = form.querySelector('input[name="name"]');
-    const email = form.querySelector('input[type="email"]');
-    const password = form.querySelectorAll('input[type="password"]');
-    const nameVal = name ? name.value.trim() : '';
-    const emailVal = email ? email.value.trim() : '';
-    const passVal = password[0] ? password[0].value.trim() : '';
-    const confirmVal = password[1] ? password[1].value.trim() : '';
-
-    if (msgEl) {
-      msgEl.hidden = false;
-      msgEl.classList.remove('auth-message--success');
-      msgEl.classList.add('auth-message--error');
+    
+    const msgEl = document.getElementById('authMessage');
+    const nameInput = form.querySelector('input[name="name"]');
+    const emailInput = form.querySelector('input[type="email"]');
+    const passwordInputs = form.querySelectorAll('input[type="password"]');
+    const passwordInput = passwordInputs[0];
+    const confirmInput = passwordInputs[1];
+    
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    const passVal = passwordInput ? passwordInput.value.trim() : '';
+    const confirmVal = confirmInput ? confirmInput.value.trim() : '';
+    
+    // Clear previous error states
+    form.querySelectorAll('input').forEach(input => input.classList.remove('error'));
+    
+    let hasError = false;
+    
+    // Validate name
+    if (!nameVal) {
+      if (msgEl) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Full name is required';
+      }
+      nameInput.classList.add('error');
+      hasError = true;
+    } else if (nameVal.length < 2) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Name must be at least 2 characters';
+      }
+      nameInput.classList.add('error');
+      hasError = true;
     }
-
-    if (!nameVal || !emailVal || !passVal || !confirmVal) {
-      if (msgEl) msgEl.textContent = 'Details not filled';
-      return;
+    
+    // Validate email
+    if (!emailVal) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Email is required';
+      }
+      emailInput.classList.add('error');
+      hasError = true;
+    } else if (!isValidEmail(emailVal)) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Please enter a valid email address';
+      }
+      emailInput.classList.add('error');
+      hasError = true;
     }
-    if (passVal !== confirmVal) {
-      if (msgEl) msgEl.textContent = 'Passwords do not match';
-      return;
+    
+    // Validate password
+    if (!passVal) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Password is required';
+      }
+      passwordInput.classList.add('error');
+      hasError = true;
+    } else if (passVal.length < 6) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Password must be at least 6 characters';
+      }
+      passwordInput.classList.add('error');
+      hasError = true;
     }
-    window.location.href = '404.html';
+    
+    // Validate confirm password
+    if (!confirmVal) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Please confirm your password';
+      }
+      confirmInput.classList.add('error');
+      hasError = true;
+    } else if (passVal !== confirmVal) {
+      if (msgEl && !hasError) {
+        msgEl.hidden = false;
+        msgEl.classList.add('auth-message--error');
+        msgEl.classList.remove('auth-message--success');
+        msgEl.textContent = '❌ Passwords do not match';
+      }
+      passwordInput.classList.add('error');
+      confirmInput.classList.add('error');
+      hasError = true;
+    }
+    
+    // If validation passes, show success and redirect
+    if (!hasError) {
+      if (msgEl) {
+        msgEl.hidden = false;
+        msgEl.classList.remove('auth-message--error');
+        msgEl.classList.add('auth-message--success');
+        msgEl.textContent = '✓ Account created successfully! Redirecting...';
+      }
+      setTimeout(() => {
+        window.location.href = '404.html';
+      }, 1500);
+    }
   });
+}
+
+function initServiceDetails() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const service = urlParams.get('service');
+  
+  if (!service) return;
+
+  const serviceContent = {
+    'web-development': {
+      title: 'Web Development',
+      subtitle: 'Full-Stack Web Solutions',
+      description: 'We build scalable, performant web applications using React, Vue.js, or Angular for the frontend, and Node.js, Python, or Java for the backend. Our solutions are responsive, accessible, and optimized for SEO.',
+      emoji: '🖥️',
+      features: [
+        { title: 'Responsive Design', desc: 'Works perfectly on desktop, tablet, and mobile' },
+        { title: 'Performance Optimization', desc: 'Fast load times and smooth user experience' },
+        { title: 'Secure & Scalable', desc: 'Built with security best practices and horizontal scaling' }
+      ]
+    },
+    'mobile-apps': {
+      title: 'Mobile App Development',
+      subtitle: 'iOS & Android Solutions',
+      description: 'We create native and cross-platform mobile applications using React Native and Flutter. Our apps are performant, user-friendly, and integrated with backend services.',
+      emoji: '📱',
+      features: [
+        { title: 'Native Performance', desc: 'Swift for iOS and Kotlin for Android development' },
+        { title: 'Cross-Platform', desc: 'React Native for faster development across platforms' },
+        { title: 'App Store Ready', desc: 'Complete app store submission and guidelines compliance' }
+      ]
+    },
+    'cloud-solutions': {
+      title: 'Cloud & DevOps',
+      subtitle: 'Cloud Infrastructure & Automation',
+      description: 'We help you migrate to the cloud and set up robust DevOps pipelines. Services include AWS, Azure, and GCP cloud solutions with containerization and CI/CD automation.',
+      emoji: '☁️',
+      features: [
+        { title: 'Cloud Migration', desc: 'Seamless migration from on-premises to AWS, Azure, or GCP' },
+        { title: 'CI/CD Pipelines', desc: 'Automated testing, building, and deployment pipelines' },
+        { title: 'Monitoring & Optimization', desc: 'Cost optimization and performance monitoring' }
+      ]
+    },
+    'api-backend': {
+      title: 'API & Backend Development',
+      subtitle: 'RESTful APIs & Microservices',
+      description: 'We build scalable backend systems using Node.js, Python, and Java. Our APIs are well-documented, secure, and optimized for performance. We design microservices architecture for flexibility.',
+      emoji: '⚙️',
+      features: [
+        { title: 'REST & GraphQL APIs', desc: 'Modern API design with comprehensive documentation' },
+        { title: 'Database Design', desc: 'MongoDB, PostgreSQL, MySQL, and Redis optimization' },
+        { title: 'Security', desc: 'Authentication, authorization, and encryption best practices' }
+      ]
+    },
+    'ai-automation': {
+      title: 'AI & Machine Learning',
+      subtitle: 'Intelligent Automation',
+      description: 'We develop custom machine learning models and AI-powered solutions. From ChatGPT integration to predictive analytics, we bring intelligence to your applications.',
+      emoji: '🤖',
+      features: [
+        { title: 'ML Model Development', desc: 'Custom models for classification, regression, and clustering' },
+        { title: 'AI Integration', desc: 'ChatGPT, GPT-4, and other LLM integrations' },
+        { title: 'Automation', desc: 'Workflow automation and intelligent process orchestration' }
+      ]
+    },
+    'it-consulting': {
+      title: 'IT Consulting',
+      subtitle: 'Technology Strategy & Architecture',
+      description: 'We provide strategic IT consulting to help you make the right technology choices. From architecture review to digital transformation, we guide you through your tech journey.',
+      emoji: '💼',
+      features: [
+        { title: 'Technology Strategy', desc: 'Roadmap planning and technology selection guidance' },
+        { title: 'Architecture Review', desc: 'System design evaluation and optimization recommendations' },
+        { title: 'Digital Transformation', desc: 'Business process reengineering with technology enablement' }
+      ]
+    }
+  };
+
+  const content = serviceContent[service];
+  if (!content) return;
+
+  // Update page title
+  document.title = content.title + ' - Stackly';
+
+  // Update page header
+  const pageHeader = document.querySelector('.page-header');
+  if (pageHeader) {
+    const h1 = pageHeader.querySelector('h1');
+    if (h1) h1.textContent = content.title;
+    const p = pageHeader.querySelector('p');
+    if (p) p.textContent = 'Professional ' + content.title.toLowerCase() + ' services';
+  }
+
+  // Update service content section
+  const section = document.querySelector('.section:nth-of-type(2)');
+  if (section) {
+    const aboutDiv = section.querySelector('div:nth-child(1)');
+    if (aboutDiv) {
+      const h2 = aboutDiv.querySelector('h2');
+      if (h2) h2.textContent = content.subtitle;
+      
+      const descP = aboutDiv.querySelector('p');
+      if (descP) descP.textContent = content.description;
+      
+      const featuresList = aboutDiv.querySelector('.about__features');
+      if (featuresList) {
+        featuresList.innerHTML = content.features.map(feature => `
+          <li class="about__feature">
+            <div class="about__feature-icon">✓</div>
+            <div>
+              <h4>${feature.title}</h4>
+              <p>${feature.desc}</p>
+            </div>
+          </li>
+        `).join('');
+      }
+    }
+
+    const imageDiv = section.querySelector('.about__image-placeholder');
+    if (imageDiv) imageDiv.textContent = content.emoji;
+  }
 }
 
 function initScrollReveal() {
