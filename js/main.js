@@ -523,7 +523,7 @@ function initServiceDetails() {
       title: 'Web Development',
       subtitle: 'Full-Stack Web Solutions',
       description: 'We build scalable, performant web applications using React, Vue.js, or Angular for the frontend, and Node.js, Python, or Java for the backend. Our solutions are responsive, accessible, and optimized for SEO.',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+      image: 'images/WebService.webp',
       imageAlt: 'Web developer coding on laptop',
       features: [
         { title: 'Responsive Design', desc: 'Works perfectly on desktop, tablet, and mobile' },
@@ -535,7 +535,7 @@ function initServiceDetails() {
       title: 'Mobile App Development',
       subtitle: 'iOS & Android Solutions',
       description: 'We create native and cross-platform mobile applications using React Native and Flutter. Our apps are performant, user-friendly, and integrated with backend services.',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+      image: 'images/AppService.webp',
       imageAlt: 'Mobile app development on smartphone',
       features: [
         { title: 'Native Performance', desc: 'Swift for iOS and Kotlin for Android development' },
@@ -547,7 +547,7 @@ function initServiceDetails() {
       title: 'Cloud & DevOps',
       subtitle: 'Cloud Infrastructure & Automation',
       description: 'We help you migrate to the cloud and set up robust DevOps pipelines. Services include AWS, Azure, and GCP cloud solutions with containerization and CI/CD automation.',
-      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+      image: 'images/CloudService.webp',
       imageAlt: 'Cloud infrastructure and network',
       features: [
         { title: 'Cloud Migration', desc: 'Seamless migration from on-premises to AWS, Azure, or GCP' },
@@ -559,7 +559,7 @@ function initServiceDetails() {
       title: 'API & Backend Development',
       subtitle: 'RESTful APIs & Microservices',
       description: 'We build scalable backend systems using Node.js, Python, and Java. Our APIs are well-documented, secure, and optimized for performance. We design microservices architecture for flexibility.',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+      image: 'images/WebService.webp',
       imageAlt: 'Backend code and development',
       features: [
         { title: 'REST & GraphQL APIs', desc: 'Modern API design with comprehensive documentation' },
@@ -571,7 +571,7 @@ function initServiceDetails() {
       title: 'AI & Machine Learning',
       subtitle: 'Intelligent Automation',
       description: 'We develop custom machine learning models and AI-powered solutions. From ChatGPT integration to predictive analytics, we bring intelligence to your applications.',
-      image: 'https://images.unsplash.com/photo-1677442136019-64780ab757b8?auto=format&fit=crop&w=800&q=80',
+      image: 'images/BackService.webp',
       imageAlt: 'AI and machine learning technology',
       features: [
         { title: 'ML Model Development', desc: 'Custom models for classification, regression, and clustering' },
@@ -583,7 +583,7 @@ function initServiceDetails() {
       title: 'IT Consulting',
       subtitle: 'Technology Strategy & Architecture',
       description: 'We provide strategic IT consulting to help you make the right technology choices. From architecture review to digital transformation, we guide you through your tech journey.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+      image: 'images/ItConsultService.webp',
       imageAlt: 'IT consulting and team strategy',
       features: [
         { title: 'Technology Strategy', desc: 'Roadmap planning and technology selection guidance' },
