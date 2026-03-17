@@ -39,15 +39,38 @@
 
   <section class="page-header">
     <div class="container">
+      <span class="section__subtitle">Insights</span>
       <h1>Our Blog</h1>
-      <p>Insights, tutorials, and industry updates</p>
+      <p>Insights, tutorials, and industry updates on development, security, and product.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="blog__grid">
-        <article class="blog-card">
+      <div class="section__header" style="margin-bottom: 1.5rem;">
+        <span class="section__subtitle">Featured</span>
+        <h2>Latest from the Team</h2>
+      </div>
+      <article class="blog-card blog-card--featured">
+        <div class="blog-card__image" style="border-radius: var(--radius-lg) 0 0 var(--radius-lg);">
+          <img src="images/Blog1.webp" alt="Web Development 2025">
+        </div>
+        <div class="blog-card__content" style="padding: 2rem;">
+          <span class="blog-card__meta">Mar 5, 2025 • Technology</span>
+          <h3><a href="blog-details.html">The Future of Web Development in 2025</a></h3>
+          <p>Explore emerging trends—AI-assisted development, edge computing, and WebAssembly—that will shape the web this year.</p>
+          <a href="blog-details.html" class="btn btn-primary" style="margin-top: 1rem;">Read more</a>
+        </div>
+      </article>
+      <div class="blog-filters" style="margin-bottom: 1.5rem;" role="tablist">
+        <button type="button" class="btn btn-outline active" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="btn btn-outline" data-filter="technology">Technology</button>
+        <button type="button" class="btn btn-outline" data-filter="security">Security</button>
+        <button type="button" class="btn btn-outline" data-filter="performance">Performance</button>
+        <button type="button" class="btn btn-outline" data-filter="product">Product</button>
+      </div>
+      <div class="blog__grid" id="blog-grid">
+        <article class="blog-card" data-category="technology">
           <div class="blog-card__image">
             <img src="images/Blog1.webp" alt="Web Development">
           </div>
@@ -57,7 +80,7 @@
             <p>Explore emerging trends and technologies that will shape the web development landscape.</p>
           </div>
         </article>
-        <article class="blog-card">
+        <article class="blog-card" data-category="security">
           <div class="blog-card__image">
             <img src="images/Blog2.webp" alt="API Security">
           </div>
@@ -67,7 +90,7 @@
             <p>Learn how to secure your APIs and protect user data from common vulnerabilities.</p>
           </div>
         </article>
-        <article class="blog-card">
+        <article class="blog-card" data-category="performance">
           <div class="blog-card__image">
             <img src="images/Blog3.webp" alt="React Performance">
           </div>
@@ -77,6 +100,39 @@
             <p>Tips and tricks to make your React applications faster and more efficient.</p>
           </div>
         </article>
+        <article class="blog-card" data-category="product">
+          <div class="blog-card__image">
+            <img src="images/Blog1.webp" alt="Cloud Migration">
+          </div>
+          <div class="blog-card__content">
+            <span class="blog-card__meta">Feb 18, 2025 • Cloud</span>
+            <h3><a href="blog-details.html">Cloud Migration: A Step-by-Step Guide</a></h3>
+            <p>How to plan and execute a smooth migration to AWS, Azure, or GCP.</p>
+          </div>
+        </article>
+        <article class="blog-card" data-category="product">
+          <div class="blog-card__image">
+            <img src="images/Blog2.webp" alt="DevOps">
+          </div>
+          <div class="blog-card__content">
+            <span class="blog-card__meta">Feb 10, 2025 • DevOps</span>
+            <h3><a href="blog-details.html">Building CI/CD Pipelines That Scale</a></h3>
+            <p>Best practices for automated testing, deployment, and rollbacks.</p>
+          </div>
+        </article>
+      </div>
+      <nav class="portfolio-filters" style="margin-top: 2rem;" aria-label="Pagination">
+        <button type="button" class="btn btn-outline" disabled>Previous</button>
+        <span style="align-self: center; padding: 0 1rem; color: var(--text-muted);">Page 1 of 2</span>
+        <a href="blog.html" class="btn btn-primary">Next</a>
+      </nav>
+      <div class="newsletter-block">
+        <h3>Stay in the loop</h3>
+        <p>Get the latest posts and product updates in your inbox. No spam.</p>
+        <form action="404.html" method="get" style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+          <input type="email" placeholder="you@company.com" required style="padding: 0.75rem 1rem; border: 1px solid var(--light-alt); border-radius: var(--radius); min-width: 220px;">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
       </div>
     </div>
   </section>

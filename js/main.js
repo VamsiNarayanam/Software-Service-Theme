@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initLoginForm();
   initRegisterForm();
   initServiceDetails();
+  initPortfolioFilters();
+  initBlogFilters();
   initScrollReveal();
 });
 
@@ -462,6 +464,54 @@ function initRegisterForm() {
   });
 }
 
+function initPortfolioFilters() {
+  const filterButtons = document.querySelectorAll('.portfolio-filters [data-filter]');
+  const cards = document.querySelectorAll('.portfolio__grid .portfolio-card');
+  if (!filterButtons.length || !cards.length) return;
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', b === this ? 'true' : 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+
+      cards.forEach(card => {
+        const categories = (card.getAttribute('data-category') || '').split(/\s+/);
+        const match = filter === 'all' || categories.includes(filter);
+        card.classList.toggle('portfolio-card--hidden', !match);
+      });
+    });
+  });
+}
+
+function initBlogFilters() {
+  const filterButtons = document.querySelectorAll('.blog-filters [data-filter]');
+  const cards = document.querySelectorAll('.blog__grid .blog-card');
+  if (!filterButtons.length || !cards.length) return;
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      filterButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', b === this ? 'true' : 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category') || '';
+        const match = filter === 'all' || category === filter;
+        card.classList.toggle('blog-card--hidden', !match);
+      });
+    });
+  });
+}
+
 function initServiceDetails() {
   const urlParams = new URLSearchParams(window.location.search);
   const service = urlParams.get('service');
@@ -473,7 +523,8 @@ function initServiceDetails() {
       title: 'Web Development',
       subtitle: 'Full-Stack Web Solutions',
       description: 'We build scalable, performant web applications using React, Vue.js, or Angular for the frontend, and Node.js, Python, or Java for the backend. Our solutions are responsive, accessible, and optimized for SEO.',
-      emoji: '🖥️',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'Web developer coding on laptop',
       features: [
         { title: 'Responsive Design', desc: 'Works perfectly on desktop, tablet, and mobile' },
         { title: 'Performance Optimization', desc: 'Fast load times and smooth user experience' },
@@ -484,7 +535,8 @@ function initServiceDetails() {
       title: 'Mobile App Development',
       subtitle: 'iOS & Android Solutions',
       description: 'We create native and cross-platform mobile applications using React Native and Flutter. Our apps are performant, user-friendly, and integrated with backend services.',
-      emoji: '📱',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'Mobile app development on smartphone',
       features: [
         { title: 'Native Performance', desc: 'Swift for iOS and Kotlin for Android development' },
         { title: 'Cross-Platform', desc: 'React Native for faster development across platforms' },
@@ -495,7 +547,8 @@ function initServiceDetails() {
       title: 'Cloud & DevOps',
       subtitle: 'Cloud Infrastructure & Automation',
       description: 'We help you migrate to the cloud and set up robust DevOps pipelines. Services include AWS, Azure, and GCP cloud solutions with containerization and CI/CD automation.',
-      emoji: '☁️',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'Cloud infrastructure and network',
       features: [
         { title: 'Cloud Migration', desc: 'Seamless migration from on-premises to AWS, Azure, or GCP' },
         { title: 'CI/CD Pipelines', desc: 'Automated testing, building, and deployment pipelines' },
@@ -506,7 +559,8 @@ function initServiceDetails() {
       title: 'API & Backend Development',
       subtitle: 'RESTful APIs & Microservices',
       description: 'We build scalable backend systems using Node.js, Python, and Java. Our APIs are well-documented, secure, and optimized for performance. We design microservices architecture for flexibility.',
-      emoji: '⚙️',
+      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'Backend code and development',
       features: [
         { title: 'REST & GraphQL APIs', desc: 'Modern API design with comprehensive documentation' },
         { title: 'Database Design', desc: 'MongoDB, PostgreSQL, MySQL, and Redis optimization' },
@@ -517,7 +571,8 @@ function initServiceDetails() {
       title: 'AI & Machine Learning',
       subtitle: 'Intelligent Automation',
       description: 'We develop custom machine learning models and AI-powered solutions. From ChatGPT integration to predictive analytics, we bring intelligence to your applications.',
-      emoji: '🤖',
+      image: 'https://images.unsplash.com/photo-1677442136019-64780ab757b8?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'AI and machine learning technology',
       features: [
         { title: 'ML Model Development', desc: 'Custom models for classification, regression, and clustering' },
         { title: 'AI Integration', desc: 'ChatGPT, GPT-4, and other LLM integrations' },
@@ -528,7 +583,8 @@ function initServiceDetails() {
       title: 'IT Consulting',
       subtitle: 'Technology Strategy & Architecture',
       description: 'We provide strategic IT consulting to help you make the right technology choices. From architecture review to digital transformation, we guide you through your tech journey.',
-      emoji: '💼',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+      imageAlt: 'IT consulting and team strategy',
       features: [
         { title: 'Technology Strategy', desc: 'Roadmap planning and technology selection guidance' },
         { title: 'Architecture Review', desc: 'System design evaluation and optimization recommendations' },
@@ -577,9 +633,16 @@ function initServiceDetails() {
       }
     }
 
-    const imageDiv = section.querySelector('.about__image-placeholder');
-    if (imageDiv) imageDiv.textContent = content.emoji;
+    const serviceImage = document.getElementById('service-detail-image');
+    if (serviceImage && content.image) {
+      serviceImage.src = content.image;
+      serviceImage.alt = content.imageAlt || content.title;
+    }
   }
+
+  // Update breadcrumb current page text
+  const breadcrumbCurrent = document.querySelector('.breadcrumb [aria-current="page"]');
+  if (breadcrumbCurrent && content) breadcrumbCurrent.textContent = content.title;
 }
 
 function initScrollReveal() {

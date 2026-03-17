@@ -32,7 +32,7 @@
           <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a href="contact.html" class="btn btn-primary">Start Project</a>
+        <a href="404.html" class="btn btn-primary">Start Project</a>
         <button class="navbar__mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -40,15 +40,32 @@
 
   <section class="page-header">
     <div class="container">
+      <span class="section__subtitle">Our Work</span>
       <h1>Our Portfolio</h1>
-      <p>Explore our latest projects and client success stories</p>
+      <p>Explore our latest projects and client success stories across web, mobile, and cloud.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
+      <div class="stats-strip">
+        <div class="stats-strip__item"><strong>50+</strong><span>Web & Mobile Projects</span></div>
+        <div class="stats-strip__item"><strong>15+</strong><span>Industries Served</span></div>
+        <div class="stats-strip__item"><strong>100%</strong><span>On-Time Delivery</span></div>
+      </div>
+      <div class="portfolio-filters-wrap">
+        <span class="portfolio-filters__label">Filter by</span>
+        <div class="portfolio-filters" role="tablist">
+          <button type="button" class="btn btn-outline active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="btn btn-outline" data-filter="web">Web</button>
+          <button type="button" class="btn btn-outline" data-filter="mobile">Mobile</button>
+          <button type="button" class="btn btn-outline" data-filter="fintech">FinTech</button>
+          <button type="button" class="btn btn-outline" data-filter="healthcare">Healthcare</button>
+          <button type="button" class="btn btn-outline" data-filter="e-commerce">E-Commerce</button>
+        </div>
+      </div>
       <div class="portfolio__grid">
-        <article class="portfolio-card">
+        <article class="portfolio-card" data-category="fintech">
           <div class="portfolio-card__image">
             <img src="images/Port1.webp" alt="FinTech Dashboard">
           </div>
@@ -57,7 +74,7 @@
             <span>Real-time analytics & reporting</span>
           </div>
         </article>
-        <article class="portfolio-card">
+        <article class="portfolio-card" data-category="e-commerce">
           <div class="portfolio-card__image">
             <img src="images/Port2.webp" alt="E-Commerce Platform">
           </div>
@@ -66,7 +83,7 @@
             <span>Full stack marketplace</span>
           </div>
         </article>
-        <article class="portfolio-card">
+        <article class="portfolio-card" data-category="healthcare mobile">
           <div class="portfolio-card__image">
             <img src="images/Port3.webp" alt="Healthcare App">
           </div>
@@ -75,7 +92,7 @@
             <span>Patient management system</span>
           </div>
         </article>
-        <article class="portfolio-card">
+        <article class="portfolio-card" data-category="web">
           <div class="portfolio-card__image">
             <img src="images/Port4.webp" alt="EdTech LMS">
           </div>
@@ -84,7 +101,7 @@
             <span>Learning management system</span>
           </div>
         </article>
-        <article class="portfolio-card">
+        <article class="portfolio-card" data-category="web">
           <div class="portfolio-card__image">
             <img src="images/Port5.webp" alt="Fleet Management">
           </div>
@@ -93,7 +110,7 @@
             <span>Logistics & tracking</span>
           </div>
         </article>
-        <article class="portfolio-card">
+        <article class="portfolio-card" data-category="fintech">
           <div class="portfolio-card__image">
             <img src="images/Port6.webp" alt="Banking Portal">
           </div>
@@ -103,6 +120,17 @@
           </div>
         </article>
       </div>
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="404.html" class="btn btn-primary">Start a Similar Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Have a Project in Mind?</h2>
+      <p>We'd love to hear about your next idea. Get in touch for a free consultation.</p>
+      <a href="404.html" class="btn btn-primary">Get in Touch</a>
     </div>
   </section>
 

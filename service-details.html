@@ -23,6 +23,8 @@
         <a href="about.html" class="navbar__link">About</a>
         <a href="services.html" class="navbar__link active">Services</a>
         <a href="portfolio.html" class="navbar__link">Portfolio</a>
+        <a href="blog.html" class="navbar__link">Blog</a>
+        <a href="pricing.html" class="navbar__link">Pricing</a>
         <a href="contact.html" class="navbar__link">Contact</a>
         <a href="dashboard.html" class="navbar__link">Dashboard</a>
       </nav>
@@ -39,9 +41,16 @@
 
   <section class="page-header">
     <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb__sep">/</span>
+        <a href="services.html">Services</a>
+        <span class="breadcrumb__sep">/</span>
+        <span aria-current="page">Web Development</span>
+      </nav>
       <span class="section__subtitle">Service</span>
       <h1>Web Development</h1>
-      <p>Custom web applications and websites built with modern technologies</p>
+      <p>Custom web applications and websites built with modern technologies. From responsive frontends to scalable backends, we deliver solutions that perform.</p>
     </div>
   </section>
 
@@ -57,32 +66,176 @@
               <div class="about__feature-icon">✓</div>
               <div>
                 <h4>Responsive Design</h4>
-                <p>Works perfectly on desktop, tablet, and mobile</p>
+                <p>Works perfectly on desktop, tablet, and mobile with adaptive layouts.</p>
               </div>
             </li>
             <li class="about__feature">
               <div class="about__feature-icon">✓</div>
               <div>
                 <h4>Performance Optimization</h4>
-                <p>Fast load times and smooth user experience</p>
+                <p>Fast load times, code splitting, and smooth user experience.</p>
               </div>
             </li>
             <li class="about__feature">
               <div class="about__feature-icon">✓</div>
               <div>
                 <h4>Secure & Scalable</h4>
-                <p>Built with security best practices and horizontal scaling</p>
+                <p>Built with security best practices and horizontal scaling in mind.</p>
+              </div>
+            </li>
+            <li class="about__feature">
+              <div class="about__feature-icon">✓</div>
+              <div>
+                <h4>SEO & Analytics</h4>
+                <p>Structured data, meta tags, and integration with analytics tools.</p>
               </div>
             </li>
           </ul>
         </div>
         <div class="about__image">
-          <div class="about__image-placeholder">🖥️</div>
+          <img id="service-detail-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Web Development" class="service-detail__image">
         </div>
       </div>
-      <div style="text-align: center; margin-top: 4rem;">
-        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Process</span>
+        <h2>How We Work</h2>
+        <p>A transparent, collaborative process from discovery to launch and beyond.</p>
       </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="process-step__num">01</span>
+          <h3>Discovery & Strategy</h3>
+          <p>We define goals, user personas, and technical requirements with your team.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">02</span>
+          <h3>Design & Prototyping</h3>
+          <p>UI/UX design, wireframes, and interactive prototypes for approval.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">03</span>
+          <h3>Development & Testing</h3>
+          <p>Agile sprints, code reviews, and automated testing for quality.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step__num">04</span>
+          <h3>Launch & Support</h3>
+          <p>Deployment, monitoring, and ongoing maintenance and updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">Technology</span>
+        <h2>Tech Stack We Use</h2>
+        <p>Modern, proven technologies for frontend, backend, and infrastructure.</p>
+      </div>
+      <div class="tech-stack">
+        <div class="tech-stack__group">
+          <h4>Frontend</h4>
+          <ul>
+            <li>React, Vue.js, Angular</li>
+            <li>TypeScript, Next.js, Nuxt</li>
+            <li>Tailwind CSS, Sass</li>
+          </ul>
+        </div>
+        <div class="tech-stack__group">
+          <h4>Backend</h4>
+          <ul>
+            <li>Node.js, Python (Django/FastAPI)</li>
+            <li>Java (Spring), .NET Core</li>
+            <li>PostgreSQL, MongoDB, Redis</li>
+          </ul>
+        </div>
+        <div class="tech-stack__group">
+          <h4>DevOps & Cloud</h4>
+          <ul>
+            <li>AWS, Azure, Google Cloud</li>
+            <li>Docker, Kubernetes</li>
+            <li>CI/CD (GitHub Actions, GitLab)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container container-sm">
+      <div class="section__header">
+        <span class="section__subtitle">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq__list">
+        <div class="faq-item active">
+          <button type="button" class="faq-item__question">How long does a typical web project take?<span class="faq-item__icon">▼</span></button>
+          <div class="faq-item__answer">
+            <p>Timeline depends on scope: a simple marketing site may take 4–8 weeks; a custom web app with backend, 3–6 months. We provide a detailed timeline after discovery.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__question">Do you offer ongoing maintenance?<span class="faq-item__icon">▼</span></button>
+          <div class="faq-item__answer">
+            <p>Yes. We offer retainer plans for updates, security patches, performance monitoring, and feature enhancements after launch.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-item__question">Can you work with our existing design or CMS?<span class="faq-item__icon">▼</span></button>
+          <div class="faq-item__answer">
+            <p>Absolutely. We integrate with Figma/Sketch designs and can build on WordPress, headless CMS, or your existing backend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__subtitle">More Services</span>
+        <h2>Related Services</h2>
+      </div>
+      <div class="services__grid">
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>API & Backend Development</h3>
+          <p>RESTful APIs, GraphQL, and microservices for your web and mobile apps.</p>
+          <a href="service-details.html?service=api-backend">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3>Cloud & DevOps</h3>
+          <p>Cloud migration, CI/CD, and infrastructure so your web app scales reliably.</p>
+          <a href="service-details.html?service=cloud-solutions">Learn more →</a>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+          </div>
+          <h3>Mobile App Development</h3>
+          <p>Native and cross-platform apps that connect to your web backend.</p>
+          <a href="service-details.html?service=mobile-apps">Learn more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Build Your Web Project?</h2>
+      <p>Tell us your goals and we'll propose a solution and timeline.</p>
+      <a href="contact.html" class="btn btn-primary">Start Your Project</a>
     </div>
   </section>
 
